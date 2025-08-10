@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 import mongoose from "mongoose"
 import AuthRoute from "./routes/AuthRoute.js"
+import userRoute from "./routes/User.Router.js"
 
 dotenv.config()
 const app = express();
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGODB_CONN, { dbName: "blogify" }).then(() => {
 
 // route setup
 app.use("/backend/auth", AuthRoute)
+app.use("/backend/user", userRoute)
 
 
 
